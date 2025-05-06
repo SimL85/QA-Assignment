@@ -111,7 +111,7 @@ namespace QAAssignment.Drivers
             //When scenario fails
             if (scenarioContext.TestError != null)
             {
-                string screenShotPath = addScreenshot(driver, scenarioContext);
+                string screenShotPath = AddScreenshot(driver, scenarioContext);
                 string filename = screenShotPath;
 
                 if (stepType == "Given")

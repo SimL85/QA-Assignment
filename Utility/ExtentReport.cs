@@ -13,24 +13,23 @@ namespace QAAssignment.Utility
 {
     public class ExtentReport
     {
-
         public static ExtentReports _extentReports;
         public static ExtentTest _feature;
         public static ExtentTest _scenario;
 
-        public static String dir = AppDomain.CurrentDomain.BaseDirectory;
-
-        public static String testResPath = @"C:\Screenshots\";
-        public static String testResultPath = IsPathExist(testResPath);
+        private static string _screenshotPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Screenshots");
+        private static string _reportPath;
 
         public static void ExtentReportInit()
         {
-            Console.WriteLine("Inside Extent Report");
-            var htmlReporter = new ExtentSparkReporter(testResultPath);
+            Console.WriteLine("Initializing Extent Report...");
+
+            _reportPath = EnsureDirectoryExists(_screenshotPath);
+
+            var htmlReporter = new ExtentSparkReporter(_reportPath);
             htmlReporter.Config.ReportName = "Automation Status Report";
             htmlReporter.Config.DocumentTitle = "Automation Status Report";
             htmlReporter.Config.Theme = Theme.Standard;
-            //htmlReporter.Start();
 
             _extentReports = new ExtentReports();
             _extentReports.AttachReporter(htmlReporter);
@@ -41,27 +40,33 @@ namespace QAAssignment.Utility
 
         public static void ExtentReportTearDown()
         {
-            Console.WriteLine("Inside Extent Report  teardown");
-            _extentReports.Flush();
+            Console.WriteLine("Flushing Extent Report...");
+            _extentReports?.Flush();
         }
 
-        public string addScreenshot(IWebDriver driver, ScenarioContext scenarioContext)
+        public static string AddScreenshot(IWebDriver driver, ScenarioContext scenarioContext)
         {
-            ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
-            Screenshot screenshot = takesScreenshot.GetScreenshot();
-            string screenshotLocation = Path.Combine(testResultPath, scenarioContext.ScenarioInfo.Title + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png");
-            screenshot.SaveAsFile(screenshotLocation);
-            return screenshotLocation;
-        }
-
-        public static string IsPathExist(string testResultPath)
-        {
-            if (!Directory.Exists(testResultPath))
+            try
             {
-                Directory.CreateDirectory(testResultPath);
+                ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
+                Screenshot screenshot = takesScreenshot.GetScreenshot();
+                string fileName = $"{scenarioContext.ScenarioInfo.Title}_{DateTime.Now:yyyyMMddHHmmss}.png";
+                string fullPath = Path.Combine(_reportPath, fileName);
+                screenshot.SaveAsFile(fullPath);
+                return fullPath;
             }
-            return testResultPath;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error taking screenshot: {ex.Message}");
+                return null;
+            }
         }
 
+        private static string EnsureDirectoryExists(string path)
+        {
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            return path;
+        }
     }
 }

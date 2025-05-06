@@ -14,8 +14,7 @@ namespace QAAssignment.Utility
         public static ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
         private static String browser;
         private static String url;
-
-        private static String driverPath = "C:\\TFS\\Test\\Test_automation\\drivers";
+        private static string driverPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Drivers\chromedriver.exe"));
         private static String defaultBrowser = "chrome";
 
         public static IWebDriver GetBrowser(BrowserInfo browserInfo, String url)
@@ -59,7 +58,6 @@ namespace QAAssignment.Utility
                 "--start-maximized",
                 "--disable-search-engine-choice-screen",
                 "--disable-cookies",
-                //"--force-device-scale-factor=0.4"
             });
 
 
