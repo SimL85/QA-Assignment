@@ -20,7 +20,7 @@ namespace QAAssignment.Utility
 
         public static String dir = AppDomain.CurrentDomain.BaseDirectory;
 
-        public static String testResPath = "C:\\Screenshots\\VåraSidor\\" + DateTime.Now.ToString("yyyy-MM-dd") + "\\";
+        public static String testResPath = @"C:\Screenshots\";
         public static String testResultPath = IsPathExist(testResPath);
 
         public static void ExtentReportInit()
