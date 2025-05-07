@@ -44,3 +44,19 @@ Close Visual Studio — the installer will launch and apply the extension.
 
 Reopen Visual Studio. You should now see full support for .feature files and step definitions.
 
+## Running the Test Suite
+
+To run all tests together, follow these steps:
+
+1. Open the solution in Visual Studio 2022.
+2. Ensure that the required dependencies are restored by building the solution (`Ctrl+Shift+B`).
+3. Open the __Test Explorer__ window by navigating to __Test > Test Explorer__.
+4. Click on the "Run All" button in the __Test Explorer__ to execute all tests.
+
+## Running Individual Tests
+
+To run a specific test:
+
+1. Open the __Test Explorer__ in Visual Studio 2022.
+2. Locate the test you want to run in the list of tests.
+3. Right-click on the test and select "Run"
