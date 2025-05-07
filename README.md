@@ -44,7 +44,9 @@ Close Visual Studio — the installer will launch and apply the extension.
 
 Reopen Visual Studio. You should now see full support for .feature files and step definitions.
 
-#Clone this repo
+
+# Clone the repo
+
 
 ## Running the Test Suite
 # At first you have to Run the Casino Application
