@@ -45,7 +45,7 @@ Close Visual Studio — the installer will launch and apply the extension.
 Reopen Visual Studio. You should now see full support for .feature files and step definitions.
 
 ## Running the Test Suite
-
+# At first you have to Run the Casino Application
 To run all tests together, follow these steps:
 
 1. Open the solution in Visual Studio 2022.
