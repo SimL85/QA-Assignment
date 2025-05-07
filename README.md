@@ -52,6 +52,8 @@ To run all tests together, follow these steps:
 2. Ensure that the required dependencies are restored by building the solution (`Ctrl+Shift+B`).
 3. Open the __Test Explorer__ window by navigating to __Test > Test Explorer__.
 4. Click on the "Run All" button in the __Test Explorer__ to execute all tests.
+![image](https://github.com/user-attachments/assets/a2b3b90a-ca88-4693-b18a-459c5fa6a93b)
+
 
 ## Running Individual Tests
 
@@ -60,3 +62,6 @@ To run a specific test:
 1. Open the __Test Explorer__ in Visual Studio 2022.
 2. Locate the test you want to run in the list of tests.
 3. Right-click on the test and select "Run"
+<img width="465" alt="image" src="https://github.com/user-attachments/assets/4e3f63ea-0f58-459a-b82a-73f06f6ac4fb" />
+
+
