@@ -29,8 +29,8 @@ namespace QAAssignment.Features
         private static string[] featureTags = ((string[])(null));
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "SpinWithValidBet", "Slot Machine - Spin With Valid Bet\r\n  As a player\r\n  I want to spin the slot mach" +
-                "ine with a valid bet\r\n  So that I can see my balance decrease and the reels spin" +
-                "", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+                "ine with a valid bet\r\n  So that I can see my balance decrease/increase and the r" +
+                "eels spin", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "SpinWithValidBet.feature"
 #line hidden
@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.AndAsync(string.Format("Enter a bet of {0}", bet), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 11
-    await testRunner.WhenAsync("Click the spin button and chek the initial balamce is decresed", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("Click the spin button and chek the initial balance is decresed", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 12
     await testRunner.ThenAsync("The result should reflect the correct amount and message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

@@ -17,7 +17,7 @@ namespace QAAssignment.Utility
         public static ExtentTest _feature;
         public static ExtentTest _scenario;
 
-        private static string _screenshotPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Screenshots");
+        public static string _screenshotPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Screenshots");
         private static string _reportPath;
 
         public static void ExtentReportInit()

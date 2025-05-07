@@ -28,7 +28,9 @@ namespace QAAssignment.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "FieldValidationBetField", "A short summary of the feature", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "FieldValidationBetField", "This feature is testing the allowded caracters in the bet field\r\n  As a player\r\n " +
+                " I want to validate the bet field\r\n  So that I can ensure that only valid charac" +
+                "ters are accepted", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "FieldValidationBetField .feature"
 #line hidden
@@ -81,6 +83,62 @@ namespace QAAssignment.Features
             await testRunner.CollectScenarioErrorsAsync();
         }
         
+        public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
+        {
+#line 7
+#line hidden
+#line 8
+ await testRunner.GivenAsync("Navigate to the slot game page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validate the bet field with valid characters")]
+        [NUnit.Framework.TestCaseAttribute("0", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("3", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("4", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("5", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("7", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("8", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("9", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute(".", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute(",", "be accepted", null)]
+        public async System.Threading.Tasks.Task ValidateTheBetFieldWithValidCharacters(string input, string result, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("input", input);
+            argumentsOfScenario.Add("result", result);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Validate the bet field with valid characters", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 10
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 7
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 11
+ await testRunner.GivenAsync("Navigate to the slot game page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 12
+ await testRunner.WhenAsync(string.Format("Enter {0} in the bet field", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 13
+ await testRunner.ThenAsync(string.Format("The bet field should {0} and the alert should not be showed", result), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Validate the bet field")]
         [NUnit.Framework.TestCaseAttribute("a", "be rejected", null)]
@@ -116,7 +174,7 @@ namespace QAAssignment.Features
         [NUnit.Framework.TestCaseAttribute("!", "be rejected", null)]
         [NUnit.Framework.TestCaseAttribute("%", "be rejected", null)]
         [NUnit.Framework.TestCaseAttribute("$", "be rejected", null)]
-        [NUnit.Framework.TestCaseAttribute("-10", "be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("-10", "be rejected", null)]
         [NUnit.Framework.TestCaseAttribute("--", "be rejected", null)]
         [NUnit.Framework.TestCaseAttribute("0", "be rejected", null)]
         [NUnit.Framework.TestCaseAttribute("3.14", "be rejected", null)]
@@ -129,7 +187,7 @@ namespace QAAssignment.Features
             argumentsOfScenario.Add("input", input);
             argumentsOfScenario.Add("result", result);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Validate the bet field", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+#line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -139,14 +197,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 6
+#line 7
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 31
  await testRunner.GivenAsync("Navigate to the slot game page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 32
  await testRunner.WhenAsync(string.Format("Enter {0} in the bet field", input), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 8
- await testRunner.ThenAsync(string.Format("The bet field should {0}", result), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 33
+ await testRunner.ThenAsync(string.Format("The bet field should {0} and the alert should be showed in case to be rejected", result), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

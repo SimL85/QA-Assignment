@@ -14,6 +14,7 @@ namespace QAAssignment.StepDefinitions
         private LoginPage page;
         private int initialBalance;
         private int betAmount;
+        private string matchType;
         private int sleepTime = 1000;
 
         public SpinWithValidBetStepDefinitions(IWebDriver driver, LoginPage page)
@@ -42,10 +43,10 @@ namespace QAAssignment.StepDefinitions
             betInput.SendKeys(betAmount.ToString());
         }
 
-        [When(@"Click the spin button and chek the initial balamce is decresed")]
+        [When(@"Click the spin button and chek the initial balance is decresed")]
         public void WhenIClickTheSpinButton()
         {
-            driver.FindElement(By.Id("spinBtn")).Click();
+            driver.FindElement(By.Id("spinBtn")).Click(); // Click the spin button
             var balanceText = driver.FindElement(By.Id("coins")).Text;
             int newBalance = int.Parse(balanceText);
             Assert.AreEqual(initialBalance - betAmount, newBalance, "Balance did not decrease correctly.");
