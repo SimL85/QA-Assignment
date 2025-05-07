@@ -1,4 +1,4 @@
-# QAAssignment
+# QA Assignment
 ✅ Prerequisites
 Before running the project, make sure you have the following tools installed and set up:
 
